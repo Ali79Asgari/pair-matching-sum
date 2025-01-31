@@ -1,5 +1,6 @@
 package org.example.pairmatchingsum.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.pairmatchingsum.dto.RequestDTO;
 import org.example.pairmatchingsum.dto.ResponseDTO;
@@ -18,7 +19,7 @@ public class FindPairController {
     private final FindPairService findPairService;
 
     @PostMapping("/")
-    public ResponseEntity<ResponseDTO> findPairs(@RequestBody RequestDTO request) {
+    public ResponseEntity<ResponseDTO> findPairs(@Valid @RequestBody RequestDTO request) {
         return ResponseEntity.ok(findPairService.findPair(request));
     }
 }
